@@ -3,6 +3,8 @@ import firebase from './firebase.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 class App extends Component {
@@ -11,12 +13,14 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      pieceInput: '',
+      repList: '',
       noteInput: '',
     }
   }
 
   componentDidMount() {
+
+    const date = moment().format('MMM Do LT');
 
     // create a Firebase reference
     const dbRef = firebase.database().ref();
@@ -25,7 +29,7 @@ class App extends Component {
 
       const newState = [];
       const data = response.val();
-      const date = moment().format('MMM Do LT');
+
 
       for (const key in data) {
 
@@ -36,17 +40,17 @@ class App extends Component {
         });
       }
 
-      // update our React state for books
+      // update our React state for notes
       this.setState({
         notes: newState
       });
     });
-
   }
 
   handleChange = (e) => {
+
     this.setState({
-      userInput: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -55,10 +59,18 @@ class App extends Component {
 
     const dbRef = firebase.database().ref();
 
-    dbRef.push(this.state.userInput);
+    const submission = {
+      rep: this.state.repList,
+      note: this.state.noteInput
+    }
+
+    console.log(submission)
+
+    dbRef.push(this.state.noteInput);
 
     this.setState({
-      userInput: '',
+      repList: '',
+      noteInput: '',
     });
   }
 
@@ -74,14 +86,20 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
+
           <div class="wrapper">
             <section class="new-practice-session">
               <div class="form-container">
                 <form action="submit">
-                  <label htmlFor="newNote">Log a new pracitce session</label>
-                  <textarea type="textarea" id="newNote"
+                  <label htmlFor="newNote">Repertoire</label>
+                  <textarea type="textarea" name="repList" id="repList"
                     onChange={this.handleChange}
-                    value={this.state.userInput}>
+                    value={this.state.repList}>
+                  </textarea>
+                  <label htmlFor="newNote">Practice Notes</label>
+                  <textarea type="textarea" id="newNote" name="noteInput"
+                    onChange={this.handleChange}
+                    value={this.state.noteInput}>
                   </textarea>
                   <button onClick={this.handleClick}>Submit</button>
                 </form>
@@ -93,8 +111,9 @@ class App extends Component {
                   return (
                     <li key={note.key}>
                       <h4>{note.time}</h4>
+
                       <p>{note.note}</p>
-                      <button onClick={() => this.removeNote(note.key)}>X</button>
+                      <button onClick={() => this.removeNote(note.key)}><FontAwesomeIcon className="icon" icon={faTimes} /></button>
                     </li>
                   )
                 })}
