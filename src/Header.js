@@ -8,7 +8,7 @@ const Header = () => {
         <header>
             <div className="wrapper">
                 <div className="headerContainer">
-                    <h1>Music App</h1>
+                    <h1>Music Notes ♫</h1>
                     <p>{date}</p>
                 </div>
             </div>

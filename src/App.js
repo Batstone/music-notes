@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       notes: [],
       repList: '',
       noteInput: '',
+      deleteNotes: false
     }
   }
 
@@ -39,6 +41,7 @@ class App extends Component {
         });
       }
 
+      // reversing the array so the notes appear in chronological order
       const reverse = newState.reverse()
 
       // update our React state for notes
@@ -58,42 +61,57 @@ class App extends Component {
   handleClick = (e) => {
     e.preventDefault();
 
-    const dbRef = firebase.database().ref();
-    const date = moment().format('MMM Do LT');
+    const rep = document.getElementById('repList')
+    const note = document.getElementById('newNote')
+    const button = document.querySelector('.submitBtn')
+    console.log(button)
 
-    const submission = {
-      rep: this.state.repList,
-      note: this.state.noteInput,
-      date: date
+    if (this.state.repList === '' || this.state.noteInput === '') {
+      rep.placeholder = 'Please enter repertoire details'
+      note.placeholder = 'Please enter rehearsal notes'
+      button.style.backgroundColor = 'red';
+    } else {
+      rep.placeholder = 'Enter repertoire details'
+      note.placeholder = 'Enter rehearsal notes'
+      button.style.backgroundColor = '#4a5859'
+      // Firebase call
+      const dbRef = firebase.database().ref();
+
+      // Getting a timestamp using the moment.js library
+      const date = moment().format('MMM Do LT');
+
+      // The object that is pushed to firebase
+      const submission = {
+        rep: this.state.repList,
+        note: this.state.noteInput,
+        date: date
+      }
+
+      dbRef.push(submission);
+
+      // Reset the state
+      this.setState({
+        repList: '',
+        noteInput: '',
+      });
     }
-
-    console.log(submission)
-
-    dbRef.push(submission);
-
-    this.setState({
-      repList: '',
-      noteInput: '',
-    });
   }
 
-  minimizeNote = (e, key) => {
-
+  minimizeNote = (e) => {
+    // storing the target of the click event
     const button = e.target
 
     const note = button.parentNode.parentNode
-
-    console.log(note)
-
     const noteDetails = button.parentNode.nextSibling
 
+    // Changing the css of the li and the note details containers
     if (e.target.matches('.min')) {
-
+      note.classList.toggle('border')
       noteDetails.classList.toggle('noteDetails')
-
     }
   }
 
+  // Method to remove the note from firebase
   removeNote = (noteKey) => {
     const dbRef = firebase.database().ref();
 
@@ -112,16 +130,16 @@ class App extends Component {
               <div className="formContainer">
                 <form action="submit">
                   <label htmlFor="newNote">Repertoire</label>
-                  <textarea type="textarea" name="repList" id="repList"
+                  <textarea type="textarea" name="repList" id="repList" placeholder="Enter repertoire details"
                     onChange={this.handleChange}
                     value={this.state.repList}>
                   </textarea>
-                  <label htmlFor="newNote">Practice Notes</label>
-                  <textarea type="textarea" id="newNote" name="noteInput"
+                  <label htmlFor="newNote">Rehearsal Notes</label>
+                  <textarea type="textarea" name="noteInput" id="newNote" placeholder="Enter rehearsal notes"
                     onChange={this.handleChange}
                     value={this.state.noteInput}>
                   </textarea>
-                  <button onClick={this.handleClick}>Submit</button>
+                  <button className="submitBtn" onClick={this.handleClick}>Submit</button>
                 </form>
               </div>
 
@@ -133,12 +151,11 @@ class App extends Component {
               <ul>
                 {this.state.notes.map((note) => {
                   return (
-                    <li key={note.key}>
-
-                      <div className="dateContainer" onClick={(e,) => this.minimizeNote(e, note.key)}>
-                        <h3>{note.date}</h3>
-                        <button className="min">---</button>
-                        <button onClick={() => this.removeNote(note.key)}><FontAwesomeIcon className="icon" icon={faTimes} /></button>
+                    <li key={note.key} className="border">
+                      <div className="dateContainer" onClick={(e) => this.minimizeNote(e, note.key)}>
+                        <h3><span>♫</span>{note.date}</h3>
+                        <button className="min iconMinus"><FontAwesomeIcon icon={faMinus} /></button>
+                        <button className="iconDelete" onClick={() => this.removeNote(note.key)}><FontAwesomeIcon icon={faTimes} /></button>
                       </div>
                       <div className="notesContainer">
                         <div className="repContainer">
