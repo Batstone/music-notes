@@ -3,6 +3,7 @@ import firebase from './firebase.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import moment from 'moment';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -38,9 +39,11 @@ class App extends Component {
         });
       }
 
+      const reverse = newState.reverse()
+
       // update our React state for notes
       this.setState({
-        notes: newState
+        notes: reverse
       });
       console.log(newState)
     });
@@ -74,6 +77,23 @@ class App extends Component {
     });
   }
 
+  minimizeNote = (e, key) => {
+
+    const button = e.target
+
+    const note = button.parentNode.parentNode
+
+    console.log(note)
+
+    const noteDetails = button.parentNode.nextSibling
+
+    if (e.target.matches('.min')) {
+
+      noteDetails.classList.toggle('noteDetails')
+
+    }
+  }
+
   removeNote = (noteKey) => {
     const dbRef = firebase.database().ref();
 
@@ -88,6 +108,7 @@ class App extends Component {
         <main>
           <div className="wrapper">
             <section className="newPracticeSession">
+
               <div className="formContainer">
                 <form action="submit">
                   <label htmlFor="newNote">Repertoire</label>
@@ -103,26 +124,29 @@ class App extends Component {
                   <button onClick={this.handleClick}>Submit</button>
                 </form>
               </div>
+
             </section>
           </div>
+
           <div className="listContainer">
             <div className="wrapper">
               <ul>
                 {this.state.notes.map((note) => {
                   return (
                     <li key={note.key}>
-                      <div className="dateContainer">
-                        <h4>{note.date}</h4>
+
+                      <div className="dateContainer" onClick={(e,) => this.minimizeNote(e, note.key)}>
+                        <h3>{note.date}</h3>
+                        <button className="min">---</button>
                         <button onClick={() => this.removeNote(note.key)}><FontAwesomeIcon className="icon" icon={faTimes} /></button>
                       </div>
-
                       <div className="notesContainer">
                         <div className="repContainer">
-                          <h3>Repertoire</h3>
+                          <h4>Repertoire</h4>
                           <p>{note.rep}</p>
                         </div>
                         <div className="noteContainer">
-                          <h3>Notes</h3>
+                          <h4>Notes</h4>
                           <p>{note.note}</p>
                         </div>
                       </div>

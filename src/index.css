@@ -35,19 +35,22 @@ h1 {
 }
 
 h3 {
-  font-size: clamp(1.2rem, 5vw, 1.7rem);
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  border-bottom: #4a5859 solid 2px;
+  padding-bottom: 10px;
+  min-width: 30%;
 }
 
 h4 {
-  font-size: clamp(1rem, 5vw, 1rem);
+  font-size: clamp(1.2rem, 5vw, 1.7rem);
   border-bottom: #4a5859 solid 2px;
   padding-bottom: 10px;
-  max-width: 40%;
-  min-width: 35%;
+  width: 125px;
 }
 
 p {
-  font-size: clamp(1rem, 2vw, 2rem)
+  font-size: clamp(1rem, 2vw, 2rem);
+  line-height: 2.4rem;
 }
 
 .wrapper {
@@ -117,21 +120,22 @@ textarea {
 /* NOTES SECTION */
 
 .listContainer {
-  margin: 75px 0;
+  margin: 50px 0;
 }
 
 ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
 }
 
 li {
   display: flex;
   flex-direction: column;
   color: black;
-  width: 40%;
   margin: 20px;
+  max-width: 10%;
+  min-width: 30%;
+  border: black solid 2px;
+  padding: 25px;
 }
 
 .dateContainer {
@@ -141,6 +145,7 @@ li {
 
 .dateContainer button {
   padding: 5px;
+  margin-left: 5px;
   background-color: white;
   border: none;
   transition: .5s
@@ -160,8 +165,15 @@ li {
   color: red;
 }
 
+/* This class is toggeled via js */
+.noteDetails {
+ display: none;
+ 
+}
+
+
 li p {
-  margin: 10px;
+  margin: 40px 50px;
   color: black;
 }
 
