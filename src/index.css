@@ -34,6 +34,18 @@ h1 {
   font-family: 'Spectral', serif;
 }
 
+h3 {
+  font-size: clamp(1.2rem, 5vw, 1.7rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 5vw, 1rem);
+  border-bottom: #4a5859 solid 2px;
+  padding-bottom: 10px;
+  max-width: 40%;
+  min-width: 35%;
+}
+
 p {
   font-size: clamp(1rem, 2vw, 2rem)
 }
@@ -47,12 +59,13 @@ p {
 /* HEADER */
 
 header {
-  background-color: black;
+  background-color: #4a5859;
   color: white;
   padding: 10px;
+  margin-bottom: 25px;
 }
 
-.header-container {
+.headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,20 +74,25 @@ header {
 main {
   min-height: calc(100vh - 180px);
 }
+
 /* NEW PRACTICE SESSION */
+
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
   height: 500px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: #32373b solid 5px;
 }
 
 form label {
   font-size: clamp(1rem, 3vw, 3rem);
   font-family: 'Spectral', serif;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 form input {
@@ -85,7 +103,7 @@ form input {
 form button {
   margin-top: 10px;
   color: white;
-  background-color: black;
+  background-color: #4a5859;
   border: none;
   padding: 15px;
 }
@@ -94,6 +112,12 @@ textarea {
   resize: none;
   width: 100%;
   height: 100%;;
+}
+
+/* NOTES SECTION */
+
+.listContainer {
+  margin: 75px 0;
 }
 
 ul {
@@ -105,20 +129,51 @@ ul {
 li {
   display: flex;
   flex-direction: column;
-  background-color: black;
-  color: white;
-  width: 400px;
+  color: black;
+  width: 40%;
+  margin: 20px;
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateContainer button {
+  padding: 5px;
+  background-color: white;
+  border: none;
+  transition: .5s
+}
+
+.dateContainer button:hover {
+  transform: scale(1.5);
+  color: red;
+}
+
+.icon {
+  color: black;
+  font-size: 20px;
+}
+
+.icon:hover {
+  color: red;
 }
 
 li p {
   margin: 10px;
-  
+  color: black;
 }
 
-.icon {
-  color: red;
-  font-size: 20px;
+.repContainer {
+  margin: 30px 0;
 }
+
+.noteContainer {
+  background-color: white;
+}
+
+
 
 
 /* FOOTER */
@@ -131,13 +186,13 @@ footer {
   padding: 10px;
 }
 
-.footer-container {
+.footerContainer {
   display: flex;
   justify-content: center;
   color: white;
 }
 
-.footer-container a {
+.footerContainer a {
   text-decoration: none;
   color: white;
 }

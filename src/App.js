@@ -20,8 +20,6 @@ class App extends Component {
 
   componentDidMount() {
 
-    const date = moment().format('MMM Do LT');
-
     // create a Firebase reference
     const dbRef = firebase.database().ref();
     // listen to the value change and use `response` as the db value
@@ -30,13 +28,13 @@ class App extends Component {
       const newState = [];
       const data = response.val();
 
-
       for (const key in data) {
-
+        console.log(data[key])
         newState.push({
           key: key,
-          note: data[key],
-          time: date
+          note: data[key].note,
+          rep: data[key].rep,
+          date: data[key].date
         });
       }
 
@@ -44,11 +42,11 @@ class App extends Component {
       this.setState({
         notes: newState
       });
+      console.log(newState)
     });
   }
 
   handleChange = (e) => {
-
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -58,15 +56,17 @@ class App extends Component {
     e.preventDefault();
 
     const dbRef = firebase.database().ref();
+    const date = moment().format('MMM Do LT');
 
     const submission = {
       rep: this.state.repList,
-      note: this.state.noteInput
+      note: this.state.noteInput,
+      date: date
     }
 
     console.log(submission)
 
-    dbRef.push(this.state.noteInput);
+    dbRef.push(submission);
 
     this.setState({
       repList: '',
@@ -86,10 +86,9 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
-
-          <div class="wrapper">
-            <section class="new-practice-session">
-              <div class="form-container">
+          <div className="wrapper">
+            <section className="newPracticeSession">
+              <div className="formContainer">
                 <form action="submit">
                   <label htmlFor="newNote">Repertoire</label>
                   <textarea type="textarea" name="repList" id="repList"
@@ -105,21 +104,36 @@ class App extends Component {
                 </form>
               </div>
             </section>
-            <div class="list-container">
+          </div>
+          <div className="listContainer">
+            <div className="wrapper">
               <ul>
                 {this.state.notes.map((note) => {
                   return (
                     <li key={note.key}>
-                      <h4>{note.time}</h4>
+                      <div className="dateContainer">
+                        <h4>{note.date}</h4>
+                        <button onClick={() => this.removeNote(note.key)}><FontAwesomeIcon className="icon" icon={faTimes} /></button>
+                      </div>
 
-                      <p>{note.note}</p>
-                      <button onClick={() => this.removeNote(note.key)}><FontAwesomeIcon className="icon" icon={faTimes} /></button>
+                      <div className="notesContainer">
+                        <div className="repContainer">
+                          <h3>Repertoire</h3>
+                          <p>{note.rep}</p>
+                        </div>
+                        <div className="noteContainer">
+                          <h3>Notes</h3>
+                          <p>{note.note}</p>
+                        </div>
+                      </div>
                     </li>
                   )
                 })}
               </ul>
             </div>
+
           </div>
+
         </main>
         <Footer />
       </div>

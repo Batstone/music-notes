@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Footer = () => {
     return (
         <footer>
-            <div class="wrapper">
-                <div class="footer-container">
+            <div className="wrapper">
+                <div className="footerContainer">
                     <p>&copy; 2020 Adam Batstone ||
-                        <a href="https://junocollege.com/" class="juno-footer-link"> Created at Juno College</a>
+                        <a href="https://junocollege.com/" className="junoFooterLink"> Created at Juno College</a>
                     </p>
                 </div>
             </div>
         </footer>
     )
-
 }
 
 export default Footer

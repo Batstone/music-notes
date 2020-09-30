@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 const Header = () => {
@@ -6,8 +6,8 @@ const Header = () => {
 
     return (
         <header>
-            <div class="wrapper">
-                <div class="header-container">
+            <div className="wrapper">
+                <div className="headerContainer">
                     <h1>Music App</h1>
                     <p>{date}</p>
                 </div>
