@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/adam-batstone-project-five/precache-manifest.c81a5b17b471cb097db2d0030ee45c66.js"
+  "/adam-batstone-project-five/precache-manifest.485e876cd446d67650801b2a729a05a1.js"
 );
 
 self.addEventListener('message', (event) => {
