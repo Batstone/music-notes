@@ -26,7 +26,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
 }
 
 h1 {
@@ -35,7 +34,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.2rem, 4vw, 3.2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-family: 'Spectral', serif;
   line-height: 50px;
   letter-spacing: 2px;
@@ -58,6 +57,7 @@ h4 {
 p {
   font-size: clamp(1rem, 2vw, 2rem);
   line-height: 2.4rem;
+  letter-spacing: .1rem;;
 }
 
 .wrapper {
@@ -81,6 +81,9 @@ header {
   align-items: center;
 }
 
+.headerContainer span {
+  color: black;
+}
 
 /* BANNER */
 
@@ -116,7 +119,6 @@ main {
   min-height: calc(100vh - 180px);
 }
 
-
 /* NEW PRACTICE SESSION */
 
 .formContainer {
@@ -131,16 +133,18 @@ form {
   justify-content: center;
   align-items: center;
   width: 60%;
-  height: 500px;
+  height: 600px;
   margin-bottom: 20px;
   padding: 15px;
   border: #32373b solid 5px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  line-height: 2.4rem;
 }
 
 form label {
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-family: 'Spectral', serif;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 form input {
@@ -179,8 +183,7 @@ li {
   flex-direction: column;
   color: black;
   margin: 20px;
-  max-width: 50%;
-  min-width: 30%;
+  min-width: 40%;
   padding: 25px;
 }
 
@@ -215,6 +218,13 @@ svg {
   transform: scale(1.5);
 }
 
+.buttonContainer {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .iconDelete,
 .iconMinus {
   color: black;
@@ -233,9 +243,7 @@ svg {
 /* This class is toggeled via js */
 .noteDetails {
  display: none;
- 
 }
-
 
 li p {
   margin: 20px 20px;
@@ -263,10 +271,107 @@ footer {
 .footerContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
 }
 
 .footerContainer a {
   text-decoration: none;
   color: white;
+}
+
+/* MEDIA QUERIES */
+
+/* Portrait tablet and small desktops */
+@media (max-width: 880px) {
+
+  h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-family: 'Spectral', serif;
+    line-height: 40px;
+    letter-spacing: 2px;
+  }
+  .bannerTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 75px;
+  }
+  
+  .bannerText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 12, 11, 0.9);
+    padding: 100px;
+    color: white;
+    text-align: center;
+    margin: 0 100px;
+  }
+  
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 720px) {
+
+  h2 {
+    line-height: 40px;
+    letter-spacing: 2px;
+  }
+
+  .bannerTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+  }
+  
+  .bannerText {
+    padding: 100px;
+    margin: 0 50px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin: 20px;
+    min-width: 90%;
+  }
+}
+
+@media (max-width: 560px) {
+
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+  h2 {
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+  }
+  .bannerTextContainer {
+    padding-top: 50px;
+  }
+  
+  .bannerText {
+    padding: 50px;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+  }
 }

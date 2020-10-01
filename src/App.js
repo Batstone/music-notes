@@ -3,11 +3,9 @@ import firebase from './firebase.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import moment from 'moment';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
-
 
 class App extends Component {
 
@@ -22,7 +20,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     // create a Firebase reference
     const dbRef = firebase.database().ref();
     // listen to the value change and use `response` as the db value
@@ -32,7 +29,6 @@ class App extends Component {
       const data = response.val();
 
       for (const key in data) {
-        console.log(data[key])
         newState.push({
           key: key,
           note: data[key].note,
@@ -48,7 +44,6 @@ class App extends Component {
       this.setState({
         notes: reverse
       });
-      console.log(newState)
     });
   }
 
@@ -64,7 +59,6 @@ class App extends Component {
     const rep = document.getElementById('repList')
     const note = document.getElementById('newNote')
     const button = document.querySelector('.submitBtn')
-    console.log(button)
 
     if (this.state.repList === '' || this.state.noteInput === '') {
       rep.placeholder = 'Please enter repertoire details'
@@ -100,7 +94,6 @@ class App extends Component {
   minimizeNote = (e) => {
     // storing the target of the click event
     const button = e.target
-
     const note = button.parentNode.parentNode
     const noteDetails = button.parentNode.nextSibling
 
@@ -122,7 +115,9 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <Header />
+
         <div className="bannerImg">
           <div className="bannerTextContainer">
             <div className="bannerText">
@@ -130,10 +125,11 @@ class App extends Component {
             </div>
           </div>
         </div>
+
         <main>
+
           <div className="wrapper">
             <section className="newPracticeSession">
-
               <div className="formContainer">
                 <form action="submit">
                   <label htmlFor="newNote">Repertoire</label>
@@ -149,7 +145,6 @@ class App extends Component {
                   <button className="submitBtn" onClick={this.handleClick}>Submit</button>
                 </form>
               </div>
-
             </section>
           </div>
 
@@ -179,10 +174,10 @@ class App extends Component {
                 })}
               </ul>
             </div>
-
           </div>
 
         </main>
+
         <Footer />
       </div>
     );

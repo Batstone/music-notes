@@ -5,9 +5,8 @@ const Footer = () => {
         <footer>
             <div className="wrapper">
                 <div className="footerContainer">
-                    <p>&copy; 2020 Adam Batstone ||
-                        <a href="https://junocollege.com/" className="junoFooterLink"> Created at Juno College</a>
-                    </p>
+                    <p>&copy; 2020 Adam Batstone |</p>
+                    <p><a href="https://junocollege.com/" className="junoFooterLink">| Created at Juno College</a></p>
                 </div>
             </div>
         </footer>
