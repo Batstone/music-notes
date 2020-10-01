@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/adam-batstone-project-five/static/css/main.f373e321.chunk.css",
-    "main.js": "/adam-batstone-project-five/static/js/main.c5190278.chunk.js",
-    "main.js.map": "/adam-batstone-project-five/static/js/main.c5190278.chunk.js.map",
+    "main.css": "/adam-batstone-project-five/static/css/main.e6530779.chunk.css",
+    "main.js": "/adam-batstone-project-five/static/js/main.38a0ceae.chunk.js",
+    "main.js.map": "/adam-batstone-project-five/static/js/main.38a0ceae.chunk.js.map",
     "runtime-main.js": "/adam-batstone-project-five/static/js/runtime-main.f938a4f2.js",
     "runtime-main.js.map": "/adam-batstone-project-five/static/js/runtime-main.f938a4f2.js.map",
-    "static/js/2.5dbafdeb.chunk.js": "/adam-batstone-project-five/static/js/2.5dbafdeb.chunk.js",
-    "static/js/2.5dbafdeb.chunk.js.map": "/adam-batstone-project-five/static/js/2.5dbafdeb.chunk.js.map",
+    "static/js/2.e13b887f.chunk.js": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js",
+    "static/js/2.e13b887f.chunk.js.map": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js.map",
     "index.html": "/adam-batstone-project-five/index.html",
-    "precache-manifest.32e8412dfee14e69e63afab591106c45.js": "/adam-batstone-project-five/precache-manifest.32e8412dfee14e69e63afab591106c45.js",
+    "precache-manifest.00848eab8385ef0b604d9bdddd394f6e.js": "/adam-batstone-project-five/precache-manifest.00848eab8385ef0b604d9bdddd394f6e.js",
     "service-worker.js": "/adam-batstone-project-five/service-worker.js",
-    "static/css/main.f373e321.chunk.css.map": "/adam-batstone-project-five/static/css/main.f373e321.chunk.css.map",
-    "static/js/2.5dbafdeb.chunk.js.LICENSE.txt": "/adam-batstone-project-five/static/js/2.5dbafdeb.chunk.js.LICENSE.txt"
+    "static/css/main.e6530779.chunk.css.map": "/adam-batstone-project-five/static/css/main.e6530779.chunk.css.map",
+    "static/js/2.e13b887f.chunk.js.LICENSE.txt": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/adam-batstone-project-five/static/media/mark-teachey-TfIQZ2gFEvI-unsplash.d2619c80.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.f938a4f2.js",
-    "static/js/2.5dbafdeb.chunk.js",
-    "static/css/main.f373e321.chunk.css",
-    "static/js/main.c5190278.chunk.js"
+    "static/js/2.e13b887f.chunk.js",
+    "static/css/main.e6530779.chunk.css",
+    "static/js/main.38a0ceae.chunk.js"
   ]
 }
