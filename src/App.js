@@ -132,7 +132,7 @@ class App extends Component {
             <section className="newPracticeSession">
               <div className="formContainer">
                 <form action="submit">
-                  <label htmlFor="newNote">Repertoire</label>
+                  <label htmlFor="repList">Repertoire</label>
                   <textarea type="textarea" name="repList" id="repList" placeholder="Enter repertoire details"
                     onChange={this.handleChange}
                     value={this.state.repList}>
