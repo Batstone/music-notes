@@ -34,6 +34,13 @@ h1 {
   font-family: 'Spectral', serif;
 }
 
+h2 {
+  font-size: clamp(1.2rem, 4vw, 3.2rem);
+  font-family: 'Spectral', serif;
+  line-height: 50px;
+  letter-spacing: 2px;
+}
+
 h3 {
   font-size: clamp(1.3rem, 2vw, 2rem);
   border-bottom: #4a5859 solid 2px;
@@ -65,7 +72,7 @@ header {
   background-color: #4a5859;
   color: white;
   padding: 10px;
-  margin-bottom: 25px;
+  
 }
 
 .headerContainer {
@@ -74,11 +81,49 @@ header {
   align-items: center;
 }
 
+
+/* BANNER */
+
+.bannerImg {
+  background: url('./mark-teachey-TfIQZ2gFEvI-unsplash.jpg');
+  background-position: center;
+  height: 50vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.bannerTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 75px;
+}
+
+.bannerText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(11, 12, 11, 0.9);
+  padding: 100px;
+  color: white;
+  text-align: center;
+  margin: 0 150px;
+}
+
 main {
   min-height: calc(100vh - 180px);
 }
 
+
 /* NEW PRACTICE SESSION */
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
 form {
   display: flex;

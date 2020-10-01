@@ -123,6 +123,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <div className="bannerImg">
+          <div className="bannerTextContainer">
+            <div className="bannerText">
+              <h2>Take notes during rehearsal and track your progress ♬</h2>
+            </div>
+          </div>
+        </div>
         <main>
           <div className="wrapper">
             <section className="newPracticeSession">
