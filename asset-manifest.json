@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/adam-batstone-project-five/static/css/main.2cd1405d.chunk.css",
-    "main.js": "/adam-batstone-project-five/static/js/main.a49277a9.chunk.js",
-    "main.js.map": "/adam-batstone-project-five/static/js/main.a49277a9.chunk.js.map",
-    "runtime-main.js": "/adam-batstone-project-five/static/js/runtime-main.f938a4f2.js",
-    "runtime-main.js.map": "/adam-batstone-project-five/static/js/runtime-main.f938a4f2.js.map",
-    "static/js/2.e13b887f.chunk.js": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js",
-    "static/js/2.e13b887f.chunk.js.map": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js.map",
-    "index.html": "/adam-batstone-project-five/index.html",
-    "precache-manifest.485e876cd446d67650801b2a729a05a1.js": "/adam-batstone-project-five/precache-manifest.485e876cd446d67650801b2a729a05a1.js",
-    "service-worker.js": "/adam-batstone-project-five/service-worker.js",
-    "static/css/main.2cd1405d.chunk.css.map": "/adam-batstone-project-five/static/css/main.2cd1405d.chunk.css.map",
-    "static/js/2.e13b887f.chunk.js.LICENSE.txt": "/adam-batstone-project-five/static/js/2.e13b887f.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/adam-batstone-project-five/static/media/mark-teachey-TfIQZ2gFEvI-unsplash.d2619c80.jpg"
+    "main.css": "/music-notes/static/css/main.d8ff68b7.chunk.css",
+    "main.js": "/music-notes/static/js/main.e1167b46.chunk.js",
+    "main.js.map": "/music-notes/static/js/main.e1167b46.chunk.js.map",
+    "runtime-main.js": "/music-notes/static/js/runtime-main.32940f5a.js",
+    "runtime-main.js.map": "/music-notes/static/js/runtime-main.32940f5a.js.map",
+    "static/js/2.ccb283e7.chunk.js": "/music-notes/static/js/2.ccb283e7.chunk.js",
+    "static/js/2.ccb283e7.chunk.js.map": "/music-notes/static/js/2.ccb283e7.chunk.js.map",
+    "index.html": "/music-notes/index.html",
+    "precache-manifest.dde0cb073e872a121fc201df811e4325.js": "/music-notes/precache-manifest.dde0cb073e872a121fc201df811e4325.js",
+    "service-worker.js": "/music-notes/service-worker.js",
+    "static/css/main.d8ff68b7.chunk.css.map": "/music-notes/static/css/main.d8ff68b7.chunk.css.map",
+    "static/js/2.ccb283e7.chunk.js.LICENSE.txt": "/music-notes/static/js/2.ccb283e7.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/music-notes/static/media/mark-teachey-TfIQZ2gFEvI-unsplash.d2619c80.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f938a4f2.js",
-    "static/js/2.e13b887f.chunk.js",
-    "static/css/main.2cd1405d.chunk.css",
-    "static/js/main.a49277a9.chunk.js"
+    "static/js/runtime-main.32940f5a.js",
+    "static/js/2.ccb283e7.chunk.js",
+    "static/css/main.d8ff68b7.chunk.css",
+    "static/js/main.e1167b46.chunk.js"
   ]
 }
