@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import logo from '../../assets/music-notes-logo.png';
 
 const Header = () => {
     const date = moment().format('dddd MMMM Do YYYY');
@@ -8,7 +9,9 @@ const Header = () => {
         <header>
             <div className="wrapper">
                 <div className="headerContainer">
-                    <h1>Music Notes <span>♫</span></h1>
+                    <div className="logoContainer">
+                        <img src={logo} alt="The music notes logo" />
+                    </div>
                     <p>{date}</p>
                 </div>
             </div>

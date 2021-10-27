@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import firebase from './firebase.js';
-import Header from './Header.js';
-import Footer from './Footer.js';
+import firebase from './components/Helper/firebase';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -117,7 +117,6 @@ class App extends Component {
       <div className="App">
 
         <Header />
-
         <div className="bannerImg">
           <div className="bannerTextContainer">
             <div className="bannerText">
